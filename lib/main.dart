@@ -70,12 +70,9 @@ class MyApp extends StatelessWidget {
           create: (context) => PredictionCubit(predictionRepository),
         ),
       ],
-      child: MaterialApp(
-        title: 'Map Explorer',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: const MapPage(),
+      child: const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: MapPage(),
       ),
     );
   }
