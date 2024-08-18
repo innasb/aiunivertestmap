@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -8,6 +7,7 @@ import 'package:aiuniverstestmap/presentation/blocs/poi_cubit.dart';
 import 'package:aiuniverstestmap/presentation/blocs/prediction_cubit.dart';
 import 'package:aiuniverstestmap/domain/entities/poi.dart';
 import 'package:http/http.dart' as http;
+import '../../domain/use_cases/get_place_name_use_case.dart';
 import '../blocs/poi_state.dart';
 import '../blocs/prediction_state.dart';
 
@@ -49,22 +49,6 @@ class _MapPageState extends State<MapPage> {
         );
       }
     });
-  }
-
-  Future<String?> getPlaceName(double latitude, double longitude) async {
-    final url = 'https://nominatim.openstreetmap.org/reverse?lat=$latitude&lon=$longitude&format=json';
-    try {
-      final response = await http.get(Uri.parse(url));
-      if (response.statusCode == 200) {
-        final data = json.decode(response.body);
-        return data['display_name'] as String?;
-      } else {
-        return null;
-      }
-    } catch (e) {
-      print('Error fetching place name: $e');
-      return null;
-    }
   }
 
   Future<void> _handleDepartureSearch(String query) async {

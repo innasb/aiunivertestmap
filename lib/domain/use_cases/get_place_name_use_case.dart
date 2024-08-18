@@ -32,3 +32,18 @@ class GetPlaceName {
     }
   }
 }
+Future<String?> getPlaceName(double latitude, double longitude) async {
+  final url = 'https://nominatim.openstreetmap.org/reverse?lat=$latitude&lon=$longitude&format=json';
+  try {
+    final response = await http.get(Uri.parse(url));
+    if (response.statusCode == 200) {
+      final data = json.decode(response.body);
+      return data['display_name'] as String?;
+    } else {
+      return null;
+    }
+  } catch (e) {
+    print('Error fetching place name: $e');
+    return null;
+  }
+}

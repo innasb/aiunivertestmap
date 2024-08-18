@@ -14,7 +14,6 @@ class FetchAndReverseGeocodePrediction {
     if (predictions.isNotEmpty) {
       final lat = predictions.first['latitude'];
       final lon = predictions.first['longitude'];
-      final placeName = await repository.getPlaceName(lat, lon);
       return LatLng(lat, lon);
     } else {
       throw Exception("No predictions found");

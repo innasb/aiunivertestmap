@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:equatable/equatable.dart';
 import 'package:aiuniverstestmap/domain/entities/poi.dart';
 import 'package:aiuniverstestmap/domain/repositories/poi_repository.dart';
 import 'poi_state.dart';

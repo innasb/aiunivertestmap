@@ -22,7 +22,6 @@ class LocationRepositoryImpl implements LocationRepository {
     return await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
   }
 
-  @override
   Future<LatLng> getCurrentLocationAsLatLng() async {
     final position = await getCurrentLocation();
     return LatLng(position.latitude, position.longitude);

@@ -2,7 +2,6 @@
 import 'dart:convert';
 import 'package:aiuniverstestmap/domain/entities/poi.dart';
 import 'package:http/http.dart' as http;
-import 'package:aiuniverstestmap/domain/entities/poi.dart';
 
 class POIDataSource {
   final String _overpassUrl = 'https://overpass-api.de/api/interpreter';

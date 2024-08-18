@@ -1,6 +1,6 @@
 import 'package:aiuniverstestmap/presentation/blocs/prediction_state.dart';
 import 'package:bloc/bloc.dart';
-import 'package:equatable/equatable.dart';
+
 import 'package:aiuniverstestmap/domain/repositories/prediction_repository.dart'; // Ensure this uses Nominatim API
 
 // part 'prediction_state.dart';
