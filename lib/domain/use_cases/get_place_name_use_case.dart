@@ -1,6 +1,7 @@
 // lib/domain/usecases/get_place_name_use_case.dart
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:geolocator/geolocator.dart';
 
 class GetPlaceNameUseCase {
   Future<String?> call(double latitude, double longitude) async {
@@ -15,6 +16,19 @@ class GetPlaceNameUseCase {
       }
     } catch (e) {
       throw Exception('Error: $e');
+    }
+  }
+}
+
+class GetPlaceName {
+  Future<String> call(Position location) async {
+    // Example implementation; replace with actual logic or API call
+    try {
+      // Simulate getting place name (you should replace this with real logic)
+      await Future.delayed(Duration(seconds: 2));
+      return 'Place name for ${location.latitude},${location.longitude}';
+    } catch (e) {
+      throw Exception('Failed to get place name: $e');
     }
   }
 }

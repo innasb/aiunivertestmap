@@ -2,7 +2,14 @@
 import 'package:aiuniverstestmap/domain/entities/poi.dart';
 import 'package:aiuniverstestmap/domain/repositories/poi_repository.dart';
 
+import '../data_sources/poi_data_source.dart';
+
 class POIRepositoryImpl implements POIRepository {
+
+  final POIDataSource dataSource;
+
+  POIRepositoryImpl(this.dataSource);
+
   @override
   Future<List<POI>> getPOIs() async {
     // Replace with actual data fetching logic
@@ -12,6 +19,10 @@ class POIRepositoryImpl implements POIRepository {
     ];
   }
 
+  @override
+  Future<List<POI>> searchPOIs(String query) {
+    return dataSource.searchPOIs(query);
+  }
   @override
   Future<void> addPOI(POI poi) async {
     // Implement your logic to add a POI
